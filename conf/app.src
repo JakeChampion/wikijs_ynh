@@ -1,6 +1,6 @@
-SOURCE_URL=https://github.com/badges/shields/archive/master.tar.gz
-SOURCE_SUM=
-SOURCE_SUM_PRG=
+SOURCE_URL=https://github.com/badges/shields/archive/bc640282d006ab535b2edb700d85a575da65b4b483d15e26d42d1c80fa8abc51.tar.gz
+SOURCE_SUM=bc640282d006ab535b2edb700d85a575da65b4b483d15e26d42d1c80fa8abc51
+SOURCE_SUM_PRG=sha256sum
 SOURCE_FORMAT=tar.gz
 SOURCE_IN_SUBDIR=false
 SOURCE_FILENAME=
