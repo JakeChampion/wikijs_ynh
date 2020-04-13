@@ -39,7 +39,7 @@ db_name=$(ynh_app_setting_get --app=$app --key=db_name)
 #=================================================
 ynh_print_info --message="Stopping a systemd service..."
 
-ynh_systemd_action --service_name=$app --action="stop" --log_path=systemd --line_match="Stopped wikijs service"
+ynh_systemd_action --service_name=$app --action="stop" --log_path=systemd --line_match="Stopped shields service"
 
 #=================================================
 # BACKUP THE APP MAIN DIR
@@ -58,9 +58,9 @@ ynh_backup --src_path="/etc/nginx/conf.d/$domain.d/$app.conf"
 #=================================================
 # BACKUP THE POSTGRESQL DATABASE
 #=================================================
-ynh_print_info --message="Backing up the PostgreSQL database..."
+#ynh_print_info --message="Backing up the PostgreSQL database..."
 
-ynh_psql_dump_db --database="$db_name" > db.sql
+#ynh_psql_dump_db --database="$db_name" > db.sql
 
 #=================================================
 # SPECIFIC BACKUP
