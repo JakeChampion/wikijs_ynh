@@ -93,12 +93,12 @@ ynh_install_app_dependencies $pkg_dependencies
 #=================================================
 # RESTORE THE POSTGRESQL DATABASE
 #=================================================
-ynh_print_info --message="Restoring the PostgreSQL database..."
+#ynh_print_info --message="Restoring the PostgreSQL database..."
 
-ynh_psql_test_if_first_run
-ynh_psql_setup_db --db_user=$db_user --db_name=$db_name --db_pwd=$db_pwd
-ynh_psql_execute_as_root --sql="CREATE EXTENSION IF NOT EXISTS pg_trgm;" --database=$db_name
-ynh_psql_execute_file_as_root --file="./db.sql" --database="$db_name"
+#ynh_psql_test_if_first_run
+#ynh_psql_setup_db --db_user=$db_user --db_name=$db_name --db_pwd=$db_pwd
+#ynh_psql_execute_as_root --sql="CREATE EXTENSION IF NOT EXISTS pg_trgm;" --database=$db_name
+#ynh_psql_execute_file_as_root --file="./db.sql" --database="$db_name"
 
 #=================================================
 # RESTORE SYSTEMD
@@ -113,7 +113,7 @@ systemctl enable $app.service
 #=================================================
 ynh_print_info --message="Integrating service in YunoHost..."
 
-yunohost service add $app --description "$app daemon for Wiki.js" --log_type systemd
+yunohost service add $app --description "$app daemon for Shields" --log_type systemd
 
 #=================================================
 # START SYSTEMD SERVICE
@@ -127,7 +127,7 @@ ynh_systemd_action --service_name=$app --action="start" --log_path=systemd --lin
 #=================================================
 ynh_print_info --message="Creating LDAP user..."
 
-yunohost user create $ldap_user --firstname "SvcWikijsLdap" --lastname "SvcWikijsLdap" --mail ${ldap_user}@$domain --password $ldap_password -q 0
+yunohost user create $ldap_user --firstname "SvcShieldsLdap" --lastname "SvcShieldsLdap" --mail ${ldap_user}@$domain --password $ldap_password -q 0
 
 #=================================================
 # GENERIC FINALIZATION
